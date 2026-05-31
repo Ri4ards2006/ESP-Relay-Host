@@ -1,8 +1,8 @@
 #include <WiFi.h>
-
+#include "secrets.h" // Das Anführungszeichen ist wichtig, weil es eine lokale Datei ist
 // WLAN Daten - Ändere das auf dein Heimnetzwerk
-const char* ssid = "DEIN_WLAN_NAME";
-const char* password = "DEIN_WLAN_PASSWORT";
+const char* ssid = WIFI_SSID;
+const char* password = WIFI_PASS;
 
 const int relayPin = 23; // Pin 23 ist mit dem Relais verbunden
 
