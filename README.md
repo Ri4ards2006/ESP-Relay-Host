@@ -45,7 +45,7 @@ We marry the efficiency of embedded systems with the intelligence of modern loca
                                 [Obsidian Integration]
 ```
 
-🚀 Roadmap
+## 🚀 Roadmap
 [x] Phase 1: Foundation - Docker setup with Ollama and Open WebUI.
 
 [ ] Phase 2: RAG Pipeline - Obsidian-Markdown indexing and metadata alignment.
@@ -56,29 +56,30 @@ We marry the efficiency of embedded systems with the intelligence of modern loca
 
 [ ] Phase 5: Self-Shutdown - Automatic inactivity-based idle shutdown logic.
 
-📊 Evaluation Metrics
-How do we measure success?
+## 📊 Evaluation Metrics
 
-Energy Autonomy: Ratio of productive uptime vs. total idle power consumption.
+### How do we measure success?
 
-Inference Latency: Time to first token (TTFT) on local hardware.
+- Energy Autonomy: Ratio of productive uptime vs. total idle power consumption.
 
-RAG Accuracy: Precision of retrieval from private Obsidian vaults.
+- Inference Latency: Time to first token (TTFT) on local hardware.
 
-Hardware Reliability: Success rate of remote wake-on-command cycles.
+- RAG Accuracy: Precision of retrieval from private Obsidian vaults.
 
-🤝 Contributing
+- Hardware Reliability: Success rate of remote wake-on-command cycles.
+
+## 🤝 Contributing
 Contributions are welcome!
 
 Fork the repository.
 
 Create your feature branch (git checkout -b feature/amazing-feature).
 
-Commit your changes.
+1. Commit your changes.
 
-Push to the branch.
+2. Push to the branch.
 
-Open a Pull Request.
+3. Open a Pull Request.
 
-⚖️ License
+### ⚖️ License
 This project is licensed under the MIT License. See the LICENSE file for details.
