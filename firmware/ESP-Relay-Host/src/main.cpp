@@ -1,18 +1,39 @@
-#include <Arduino.h>
+#include <WiFi.h>
 
-// put function declarations here:
-int myFunction(int, int);
+// WLAN Daten - Ändere das auf dein Heimnetzwerk
+const char* ssid = "DEIN_WLAN_NAME";
+const char* password = "DEIN_WLAN_PASSWORT";
+
+const int relayPin = 23; // Pin 23 ist mit dem Relais verbunden
+
+WiFiServer server(80);
 
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+  Serial.begin(115200);
+  pinMode(relayPin, OUTPUT);
+  digitalWrite(relayPin, LOW); // Relais standardmäßig aus
+
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("\nWiFi verbunden! IP: ");
+  Serial.println(WiFi.localIP());
+  server.begin();
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-}
-
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+  WiFiClient client = server.available();
+  if (client) {
+    String request = client.readStringUntil('\r');
+    if (request.indexOf("/trigger") != -1) {
+      Serial.println("PC Power-Button Trigger!");
+      digitalWrite(relayPin, HIGH); // Relais an
+      delay(500);                   // 500ms halten
+      digitalWrite(relayPin, LOW);  // Relais aus
+      client.println("HTTP/1.1 200 OK\nContent-Type: text/plain\n\nPC gestartet!");
+    }
+    client.stop();
+  }
 }
